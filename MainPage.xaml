@@ -3,31 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mycode="clr-namespace:MauiLearnMicrosoft.Extension"
              xmlns:notes="clr-namespace:MauiLearnMicrosoft"
-             x:Class="MauiLearnMicrosoft.MainPage">
+             x:Class="MauiLearnMicrosoft.MainPage"
+             Title="">
+    <ScrollView>
+        <Grid>
 
-    <VerticalStackLayout x:Name="MyStackLayout" Margin="30,60,30,30">
-        <Label Text="Notas"
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <VerticalStackLayout x:Name="MyStackLayout" Margin="30,0,30,30">
+                <Label Text="Notas"
                FontSize="{mycode:GlobalFontSize}"               
                HorizontalOptions="Center"
                FontAttributes="Bold"
                TextColor="{x:Static Member=notes:SharedResources.FontColor}"/>
-               
-        <Editor x:Name="editor"
+
+                <Editor x:Name="editor"
                 Placeholder="Digite sua Nota"
                 HeightRequest="100"
                 TextColor="{x:Static Member=notes:SharedResources.FontColor}"/>
-        <Grid ColumnDefinitions="Auto,30,Auto">
-            <Button Text="Salvar"
+                <Grid ColumnDefinitions="Auto,30,Auto">
+                    <Button Text="Salvar"
                     WidthRequest="100"
                     Clicked="onSaveNoteClicked"
                     BackgroundColor="{x:Static Member=notes:SharedResources.BackGroundColor}"/>
-            <Button Grid.Column="2"
+                    <Button Grid.Column="2"
                     Text="Excluir"
                     WidthRequest="100"
                     Clicked="onDeleteNoteClicked"
                     BackgroundColor="{x:Static Member=notes:SharedResources.BackGroundColor}"
                     />
+                </Grid>
+            </VerticalStackLayout>
+            <ScrollView Grid.Row="2">
+                <StackLayout BackgroundColor="Blue">
+                    <Label Text="Start" HorizontalOptions="Start" BackgroundColor="Silver" FontSize="40" />
+                    <Label Text="Center" HorizontalOptions="Center" BackgroundColor="Silver"  FontSize="40" />
+                    <Label Text="End" HorizontalOptions="End" BackgroundColor="Silver"  FontSize="40"/>
+                    <Label Text="Fill" HorizontalOptions="Fill" BackgroundColor="Silver"  FontSize="40"/>
+                    <BoxView Color="Silver" />
+                    <BoxView Color="Blue" />
+                    <BoxView Color="Gray" />
+                </StackLayout>
+            </ScrollView>
+                      
         </Grid>
-    </VerticalStackLayout>
-
+    </ScrollView>  
 </ContentPage>

@@ -2,7 +2,7 @@
 
 public partial class MainPage : ContentPage
 {
-    public const double MyFontSize = 18;
+    public const double MyFontSize = 18;// padronizando o tamanho de uma fonte através da interface IMarkupExtension
     string _FileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
     public MainPage()
     {
